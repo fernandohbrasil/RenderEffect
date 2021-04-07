@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">RenderEffect</string>
+    <string name="apply_render_effect">Apply Render Effect</string>
+    <string name="example_view">Example view</string>
+    <string name="clear_effects">Clear Effects</string>
+    <string name="apply_effects_to">Apply Effects to</string>
+    <string name="image">Image</string>
+    <string name="button">Button</string>
+    <string name="both">Both</string>
+    <string name="type_your_x_radius">Type your X Radius</string>
+    <string name="type_your_y_radius">Type your Y Radius</string>
+    <string name="put_your_radius_values_1"><![CDATA[Put your Radius Values > 1]]></string>
+    <string name="type_of_render_effect">Type of Render Effect</string>
+    <string name="blur">blur</string>
+    <string name="blend">blend</string>
+
+
+    <string-array name="blend_mode">
+        <item>BlendMode.CLEAR</item>
+        <item>BlendMode.SRC</item>
+        <item>BlendMode.DST</item>
+        <item>BlendMode.SRC_OVER</item>
+        <item>BlendMode.DST_OVER</item>
+        <item>BlendMode.SRC_IN</item>
+        <item>BlendMode.DST_IN</item>
+        <item>BlendMode.SRC_OUT</item>
+        <item>BlendMode.DST_OUT</item>
+        <item>BlendMode.SRC_ATOP</item>
+        <item>BlendMode.DST_ATOP</item>
+        <item>BlendMode.XOR</item>
+        <item>BlendMode.PLUS</item>
+        <item>BlendMode.MODULATE</item>
+        <item>BlendMode.SCREEN</item>
+        <item>BlendMode.OVERLAY</item>
+        <item>BlendMode.DARKEN</item>
+        <item>BlendMode.LIGHTEN</item>
+        <item>BlendMode.COLOR_DODGE</item>
+        <item>BlendMode.COLOR_BURN</item>
+        <item>BlendMode.HARD_LIGHT</item>
+        <item>BlendMode.SOFT_LIGHT</item>
+        <item>BlendMode.DIFFERENCE</item>
+        <item>BlendMode.EXCLUSION</item>
+        <item>BlendMode.MULTIPLY</item>
+        <item>BlendMode.HUE</item>
+        <item>BlendMode.SATURATION</item>
+        <item>BlendMode.COLOR</item>
+        <item>BlendMode.LUMINOSITY</item>
+    </string-array>
+
+    <string-array name="tile_mode">
+        <item>Shader.TileMode.CLAMP</item>
+        <item>Shader.TileMode.REPEAT</item>
+        <item>Shader.TileMode.MIRROR</item>
+        <item>Shader.TileMode.DECAL</item>
+    </string-array>
+</resources>
