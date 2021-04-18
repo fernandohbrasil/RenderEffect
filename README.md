@@ -34,15 +34,13 @@ Creating algorithms increase the complexity of the project
 Not efficient use of CPU and RAM.
 
 RenderEffect was created to solve this issue. In Android 12 we don’t need to use an external library or to create a complex algorithm . We just need to add the RenderEffect in the needed View like this:
-
-view.setRenderEffect(
-RenderEffect.createBlurEffect(float radiusX, float radiusY, TileMode edgeTreatment
-)
-)
-
+```kotlin
+view.setRenderEffect(RenderEffect.createBlurEffect(float radiusX, float radiusY, TileMode edgeTreatment))
+```
 To remove the RenderEffect you just need to set null in the view, like this:
-
+```kotlin
 view.setRenderEffect(null)
+````
 
 Below there is a small sample of the RenderEffect features.
 
