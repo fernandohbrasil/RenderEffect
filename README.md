@@ -5,7 +5,7 @@ March was the month of Android 12, preview 2. Among the new features announced, 
 Currently, if we need to create a BlurEffect in any View, with an internet search we find some solutions like:
 
 Blurry
-```
+```java
 Blurry.with(context)
   .radius(10)
   .sampling(8)
@@ -15,7 +15,7 @@ Blurry.with(context)
 ```
 
 Glide
-```
+```java
 Glide.with(getContext()).load(R.mipmap.bg)
   .apply(bitmapTransform(new BlurTransformation(22)))
   .into((ImageView) view.findViewById(R.id.imBg));
