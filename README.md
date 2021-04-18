@@ -1,10 +1,10 @@
 # RenderEffect
 
-March was the month of Android 12, preview 2. Among the new features announced, there is the brand new RenderEffect API. In this article, we’re gonna learn which problems this API can solve and how to use it.
+March was the month of Android 12, preview 2. Among the (new features)[https://developer.android.com/about/versions/12/features] announced, there is the brand new (RenderEffect)[https://developer.android.com/reference/android/graphics/RenderEffect] API. In this article, we’re gonna learn which problems this API can solve and how to use it.
 
 Currently, if we need to create a BlurEffect in any View, with an internet search we find some solutions like:
 
-Blurry
+(Blurry)[https://github.com/wasabeef/Blurry]
 ```java
 Blurry.with(context)
   .radius(10)
@@ -14,7 +14,7 @@ Blurry.with(context)
   .onto(rootView);
 ```
 
-Glide
+(Glide)[https://github.com/bumptech/glide]
 ```java
 Glide.with(getContext()).load(R.mipmap.bg)
   .apply(bitmapTransform(new BlurTransformation(22)))
@@ -22,11 +22,9 @@ Glide.with(getContext()).load(R.mipmap.bg)
 ```
 
 Another alternative would be to create our own complex algorithms like in the following tutorials:
-How to Blur Images Efficiently with Android's RenderScript
-
-How to Blur an Image on Android
-
-How to Create a Dynamic Blur Effect on Android 
+- (How to Blur Images Efficiently with Android's RenderScript)[https://futurestud.io/tutorials/how-to-blur-images-efficiently-with-androids-renderscript]
+- (How to Blur an Image on Android)[https://medium.com/mobile-app-development-publication/blurring-image-algorithm-example-in-android-cec81911cd5e]
+- (How to Create a Dynamic Blur Effect on Android)[https://medium.com/@Intersog/how-to-create-a-dynamic-blur-effect-on-android-b835d514684]
 
 All of these solutions will deliver what we need. However, some negative points that we should consider are: 
 External libs increases the chance of having breaking changes in our project
