@@ -61,7 +61,13 @@ In image 3 we are seeing a different effect provided by the RenderEffect. In thi
 In the method createBlendModeEffect(RenderEffect dst, RenderEffect src, BlendMode blendMode), we have two parameters that represent the RenderEffects that we will combine as dst and src. Also, there is a third parameter blendMode that gives us a lot of options and we're gonna see some examples below.
 
 Here is a little example in how we are using the blend mode.
-(with a proper text editor I will past the code will look better)
+```kotlin
+RenderEffect.createBlendModeEffect(
+  RenderEffect.createBlurEffect(getXRadius(), getYRadius(), getShaderTileMode()),
+  RenderEffect.createBitmapEffect(BitmapFactory.decodeResource(resources, R.drawable.android)),
+  BlendMode.PLUS
+)
+```
 
 The effects we are blending are the createBlurEffect and the createBitmapEffect. The createBitmapEffect basically adds a bitmap image in the View. So, as we can see we have the original Image with the blur effect applied blended with a new Image superimposing it in the screen.
 
