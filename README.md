@@ -43,6 +43,7 @@ view.setRenderEffect(null)
 Below there is a small sample of the RenderEffect features.
 
 In image 1 we can see the initial state of the app. Just an Image and button that we're gonna see with the BlurEffect applied.
+![image_1](images/image_1.png)
 
 In image 2 we applied the createBlurEffect (float radiusX, float radiusY, Shader.TileMode edgeTreatment) to the button and the Image.
 
