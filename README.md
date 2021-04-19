@@ -31,87 +31,77 @@ External libs increases the chance of having breaking changes in our project
 Creating algorithms increase the complexity of the project
 Not efficient use of CPU and RAM.
 
-RenderEffect was created to solve this issue. In Android 12 we don’t need to use an external library or to create a complex algorithm . We just need to add the RenderEffect in the needed View like this:
+RenderEffect was created to solve this issue. In Android 12 we don’t need to use an external library or to create a complex algorithm . We just need to add the RenderEffect in the needed **View** like this:
 ```kotlin
 view.setRenderEffect(RenderEffect.createBlurEffect(float radiusX, float radiusY, TileMode edgeTreatment))
 ```
-To remove the RenderEffect you just need to set null in the view, like this:
+To remove the **RenderEffect** you just need to set null in the view, like this:
 ```kotlin
 view.setRenderEffect(null)
 ````
 
 Below there is a small sample of the RenderEffect features.
 
-In image 1 we can see the initial state of the app. Just an Image and button that we're gonna see with the BlurEffect applied.
+In **image 1** we can see the initial state of the app. Just an Image and button that we're gonna see with the BlurEffect applied.
 
 ![image_1](images/image_1.png)
 
-In image 2 we applied the createBlurEffect (float radiusX, float radiusY, Shader.TileMode edgeTreatment) to the button and the Image.
+In **image 2** we applied the [createBlurEffect](https://developer.android.com/reference/android/graphics/RenderEffect#createBlurEffect(float,%20float,%20android.graphics.Shader.TileMode)) (float **radiusX**, float **radiusY**, Shader.TileMode **edgeTreatment**) to the button and the Image.
 
 ![image_2](images/image_2.png)
 
-In this method we have the parameters radiusX and radiusY, both are used to define the level and “direction” of the Blur effect. For example, the below image has a radiusY is 20, so you can see the image have a Blur effect in a vertical direction.
+In this method we have the parameters **radiusX** and **radiusY**, both are used to define the level and “direction” of the Blur effect. For example, the below image has a **radiusY** is 20, so you can see the image have a Blur effect in a vertical direction.
 
 Just with these two parameters it is possible to achieve several results, depending on what you need, and just with one line of code.
 
-The parameter edgeTreatment, during my tests I couldn’t identify any difference for this method. So let’s ignore it for now.
+The parameter **edgeTreatment**, during my tests I couldn’t identify any difference for this method. So let’s ignore it for now.
 
-In image 3 we are seeing a different effect provided by the RenderEffect. In this case we are using the createBlendModeEffect. This method permits us to combine two different RenderEffect.
+In **image 3** we are seeing a different effect provided by the RenderEffect. In this case we are using the [createBlendModeEffect](https://developer.android.com/reference/android/graphics/RenderEffect#createBlendModeEffect(android.graphics.RenderEffect,%20android.graphics.RenderEffect,%20android.graphics.BlendMode)). This method permits us to combine two different RenderEffect.
 
-In the method createBlendModeEffect(RenderEffect dst, RenderEffect src, BlendMode blendMode), we have two parameters that represent the RenderEffects that we will combine as dst and src. Also, there is a third parameter blendMode that gives us a lot of options and we're gonna see some examples below.
+In the method **createBlendModeEffect**(RenderEffect dst, RenderEffect src, BlendMode blendMode), we have two parameters that represent the RenderEffects that we will combine as dst and src. Also, there is a third parameter **blendMode** that gives us a lot of options and we're gonna see some examples below.
 
 Here is a little example in how we are using the blend mode.
 ```kotlin
 RenderEffect.createBlendModeEffect(
-  RenderEffect.createBlurEffect(getXRadius(), getYRadius(), getShaderTileMode()),
+  RenderEffect.createBlurEffect(20f, 10f, Shader.TileMode.CLAMP,
   RenderEffect.createBitmapEffect(BitmapFactory.decodeResource(resources, R.drawable.android)),
   BlendMode.PLUS
 )
 ```
 
-The effects we are blending are the createBlurEffect and the createBitmapEffect. The createBitmapEffect basically adds a bitmap image in the View. So, as we can see we have the original Image with the blur effect applied blended with a new Image superimposing it in the screen.
+The effects we are blending are the **createBlurEffect** and the **createBitmapEffect**. The **createBitmapEffect** basically adds a bitmap image in the View. So, as we can see we have the original Image with the blur effect applied blended with a new Image superimposing it in the screen.
 
-In image 3 we can see the now known blurEffect with a 20 radiusY + bitmapEffect. Using the blendMode BlendMode.SRC_ATOP.
+In **image 3** we can see the now known blurEffect with a 20 **radiusY** + bitmapEffect. Using the blendMode **BlendMode.SRC_ATOP**.
 
 ![image_3](images/image_3.png)
 
-In image 4 we have just a small change from the previous image. Now the blendMode is BlendMode.DARKEN.
+In **image 4** we have just a small change from the previous image. Now the blendMode is **BlendMode.DARKEN**.
 
 ![image_4](images/image_4.png)
 
-In image 5, is the same as Image 4. But now the blendMode is BlendMode.MULTIPLY.
+In **image 5**, is the same as **image 4**. But now the blendMode is **BlendMode.MULTIPLY**.
 
 ![image_5](images/image_5.png)
 
-In image 6, we have a little bigger variation. We applied a blurEffect with 50 in the radiusX and the radiusY, so we can see our original image a lot more blurry. Also the blendMode is BlendMode.HARD_LIGHT.
+In **image 6**, we have a little bigger variation. We applied a blurEffect with 50 in the radiusX and the radiusY, so we can see our original image a lot more blurry. Also the blendMode is **BlendMode.HARD_LIGHT**.
 
 ![image_6](images/image_6.png)
 
-With only the 3 methods that have been presented, it is possible to achieve several results in a very simple way. Also, the RenderEffect still has other methods which are worth exploring.
+With only the 3 methods that have been presented, it is possible to achieve several results in a very simple way. Also, the **RenderEffect** still has other methods which are worth exploring.
 
 A negative point that is worth mentioning is that it seems that this API will not be backported. So only apps with Android 12+ will be able to use this API.
 
 However, it is already very interesting to be able to count on this tool, even for now for a small number of users. In addition to knowing that the Android team is concerned with improvements in this part is also very exciting.
 
-
-The source code from this article can be found here https://github.com/fernandohbrasil/RenderEffect
-
 Links that I used in this article.
 
-https://android-developers.googleblog.com/2021/03/android-12-developer-preview-2.html
-
-https://developer.android.com/reference/android/graphics/RenderEffect 
-
-https://stackoverflow.com/questions/31641973/how-to-blur-background-images-in-android
-
-https://github.com/wasabeef/Blurry 
-
-https://github.com/bumptech/glide 
-
-https://futurestud.io/tutorials/how-to-blur-images-efficiently-with-androids-renderscript
-https://medium.com/mobile-app-development-publication/blurring-image-algorithm-example-in-android-cec81911cd5e
-https://medium.com/@Intersog/how-to-create-a-dynamic-blur-effect-on-android-b835d514684
-
-https://developer.android.com/about/versions/12/features
-
-https://blog.stylingandroid.com/rendereffect-blur/
+- https://android-developers.googleblog.com/2021/03/android-12-developer-preview-2.html
+- https://developer.android.com/reference/android/graphics/RenderEffect 
+- https://stackoverflow.com/questions/31641973/how-to-blur-background-images-in-android
+- https://github.com/wasabeef/Blurry 
+- https://github.com/bumptech/glide 
+- https://futurestud.io/tutorials/how-to-blur-images-efficiently-with-androids-renderscript
+- https://medium.com/mobile-app-development-publication/blurring-image-algorithm-example-in-android-cec81911cd5e
+- https://medium.com/@Intersog/how-to-create-a-dynamic-blur-effect-on-android-b835d514684
+- https://developer.android.com/about/versions/12/features
+- https://blog.stylingandroid.com/rendereffect-blur/
