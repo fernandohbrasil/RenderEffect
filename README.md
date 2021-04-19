@@ -43,9 +43,12 @@ view.setRenderEffect(null)
 Below there is a small sample of the RenderEffect features.
 
 In image 1 we can see the initial state of the app. Just an Image and button that we're gonna see with the BlurEffect applied.
+
 ![image_1](images/image_1.png)
 
 In image 2 we applied the createBlurEffect (float radiusX, float radiusY, Shader.TileMode edgeTreatment) to the button and the Image.
+
+![image_2](images/image_2.png)
 
 In this method we have the parameters radiusX and radiusY, both are used to define the level and “direction” of the Blur effect. For example, the below image has a radiusY is 20, so you can see the image have a Blur effect in a vertical direction.
 
@@ -64,11 +67,19 @@ The effects we are blending are the createBlurEffect and the createBitmapEffect.
 
 In image 3 we can see the now known blurEffect with a 20 radiusY + bitmapEffect. Using the blendMode BlendMode.SRC_ATOP.
 
+![image_3](images/image_3.png)
+
 In image 4 we have just a small change from the previous image. Now the blendMode is BlendMode.DARKEN.
+
+![image_4](images/image_4.png)
 
 In image 5, is the same as Image 4. But now the blendMode is BlendMode.MULTIPLY.
 
+![image_5](images/image_5.png)
+
 In image 6, we have a little bigger variation. We applied a blurEffect with 50 in the radiusX and the radiusY, so we can see our original image a lot more blurry. Also the blendMode is BlendMode.HARD_LIGHT.
+
+![image_6](images/image_6.png)
 
 With only the 3 methods that have been presented, it is possible to achieve several results in a very simple way. Also, the RenderEffect still has other methods which are worth exploring.
 
